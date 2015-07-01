@@ -1,0 +1,217 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box ;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif, arial;
+    font-size: 14px;
+    text-align: left;
+}
+
+.center {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    display: inline;
+}
+
+.header {
+    height: 50px;
+    background-color: dimgray;
+    padding-top: 15px;
+}
+
+.header a {
+    color: white;
+    padding-left: 15px;
+    font-size: 15px;
+}
+
+.leftmenu {
+    float: left;
+}
+
+.rightmenu {
+    float: right;
+    padding-right: 10px;
+}
+
+.page-header {
+    margin-top: 15px;
+    clear: both;
+}
+
+.pull-left {
+    float: left;
+    font-size: 25px;
+}
+
+.pull-right {
+    float: right;
+    margin-right: 15px;
+}
+
+.pull-right a {
+    color: white;
+    padding: 10px 15px;
+    background-color: #1872A2;
+    border-radius: 3px;
+    color: white;
+}
+
+.page-contain {
+    padding-top: 50px;
+}
+
+.table{
+    width: 100%;
+}
+
+.form {
+    text-align: center;
+    margin-top: 15px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+.form input {
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.form button {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+table {
+    text-align: center;
+}
+
+.first-row {
+    font-weight: bold;
+    font-size: 17px;
+    color: #0000cc;
+}
+
+table a {
+    color: black;
+    cursor: pointer;
+}
+
+select {
+    height: 30px;
+    margin-top: 5px;
+    width: 145px;
+}
+
+.error {
+    color: red;
+    margin-top: 7px;
+}
+
+#new-product {
+    margin-bottom: 50px;
+}
+
+#new-product h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+#new-product ul {
+    border-top: solid 2px #EFEFEF;
+    border-bottom: solid 2px #EFEFEF;
+    padding: 10px 0 10px 0;
+}
+
+#new-product .tab {
+    margin-left: 15px;
+}
+
+#new-product li {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.active {
+    border-left: solid 2px #EFEFEF;
+    border-right: solid 2px #EFEFEF;
+}
+
+#new-product label {
+    display: inline-block;
+    width: 100px;
+}
+
+#new-product input {
+    height: 30px;
+}
+
+#new-product p {
+    margin-top: 20px;
+}
+
+textarea {
+    height: 200px;
+}
+
+.input {
+    width: 840px;
+    border-radius: 3px;
+    border: solid 1px #ABADB3;
+    padding-left: 15px;
+}
+
+#new-product .left {
+    float: left;
+}
+
+#new-product .right {
+    float: right;
+}
+
+.categories {
+    height: 150px;
+    background-color: #F5F5F5;
+    margin-left: 105px;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.fa {
+    font-family: FontAwesome;
+    font-style: normal;
+}
+
+.preview {
+    height: 200px;
+    width: 200px;
+}

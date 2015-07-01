@@ -1,0 +1,50 @@
+<div class="center" ng-controller="ProductsController" ng-init="find()">
+    <div class="page-header">
+        <div class="pull-left">Products</div>
+        <div class="pull-right">
+            <a class="btn-primary" href="/admin/#!/products/create">+</a>
+        </div>
+    </div>
+
+    <div class="page-contain">
+        <table border="1" class="table">
+            <tr>
+                <td class="first-row">
+                    Avatar
+                </td>
+                <td class="first-row">
+                    Product Name
+                </td>
+                <td class="first-row">
+                    Price
+                </td>
+                <td class="first-row">
+                    Status
+                </td>
+                <td class="first-row">
+                    Action
+                </td>
+            </tr>
+            <tr ng-repeat="product in products">
+                <td>
+                    <img style="height: 50px; width: 50px" ng-src="/images/{{product.thumbnail}}">
+                </td>
+                <td>
+                    {{product.name}}
+                </td>
+                <td>
+                    {{product.price}}
+                    {{product.deal_price}}
+                </td>
+                <td>
+                    {{product.ready}}
+                </td>
+                <td>
+                    <a href="/admin/#!/products/{{product._id}}/edit">Edit</a>
+                    <a data-ng-click="remove(product)">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,13 @@
+<div class="center" ng-controller="TypeCategoriesController" ng-init="findOne()">
+    <div class="form">
+        <h2>Edit Type Category</h2>
+        <form ng-submit="update()">
+            <label for="name">Name</label>
+            <input id="name" ng-model="typecategory.name">
+            <label for="postition">Position</label>
+            <input id="postition" ng-model="typecategory.position">
+            <br>
+            <button type="submit" value="Submit">Submit</button>
+        </form>
+    </div>
+</div>

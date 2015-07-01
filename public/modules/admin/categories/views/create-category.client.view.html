@@ -1,0 +1,22 @@
+<div class="center" ng-controller="CategoriesController" ng-init="findType()">
+    <div class="form">
+        <h2>New Category</h2>
+        <form ng-submit="create()">
+            <label for="name">Name</label>
+            <input id="name" ng-model="category.name">
+            <label for="postition">Position</label>
+            <input id="postition" ng-model="category.position">
+            <label for="type">Type Category</label>
+            <select id="type" ng-model="category.type">
+                <option ng-repeat="typecategory in typecategories" value="{{typecategory._id}}">
+                    {{typecategory.name}}
+                </option>
+            </select>
+            <p class="error">
+                {{error}}
+            </p>
+            <br>
+            <button type="submit" value="Submit">Submit</button>
+        </form>
+    </div>
+</div>

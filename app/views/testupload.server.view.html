@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--<style>-->
+        <!--.button {-->
+            <!-&#45;&#45;moz-appearance: button;-->
+            <!--/* Firefox */-->
+            <!-&#45;&#45;webkit-appearance: button;-->
+            <!--/* Safari and Chrome */-->
+            <!--padding: 10px;-->
+            <!--margin: 10px;-->
+            <!--width: 70px;-->
+        <!--}-->
+        <!--.drop-box {-->
+            <!--background: #F8F8F8;-->
+            <!--border: 5px dashed #DDD;-->
+            <!--width: 200px;-->
+            <!--height: 65px;-->
+            <!--text-align: center;-->
+            <!--padding-top: 25px;-->
+            <!--margin: 10px;-->
+        <!--}-->
+        <!--.dragover {-->
+            <!--border: 5px dashed blue;-->
+        <!--}-->
+    <!--</style>-->
+
+    <script type="text/javascript" src="/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+
+    <script src="/js/ng-file-upload-shim.min.js"></script>
+    <script src="/js/ng-file-upload.min.js"></script>
+
+    <script type="text/javascript" src="/js/testupload.js"></script>
+</head>
+<body>
+<div ng-app="fileUpload">
+<form ng-submit="upload()" ng-controller="MyCtrl">
+    <!--<div class="button" ngf-select ng-model="files">Upload using model $watch</div>-->
+    <!--<div class="button" ngf-select ngf-change="upload($files)">Upload on file change</div>-->
+    <!--Drop File:-->
+    <!--<div ngf-drop ng-model="files" class="drop-box"-->
+         <!--ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"-->
+         <!--ngf-accept="'image/*,application/pdf'">Drop Images or PDFs files here</div>-->
+    <!--<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>-->
+    <input type="file" ng-model="files" ngf-select>
+    Image thumbnail: <img ngf-src="files[0]" ngf-default-src="/images/no_image.png" ngf-accept="'image/*'">
+    <input type="submit" value="submit">
+
+</form>
+</div>
+</body>
+</html>

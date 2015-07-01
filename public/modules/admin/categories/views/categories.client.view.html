@@ -1,0 +1,43 @@
+<div class="center" ng-controller="CategoriesController" ng-init="find()">
+    <div class="page-header">
+        <div class="pull-left">Categories</div>
+        <div class="pull-right">
+            <a class="btn-primary" href="/admin/#!/categories/create">+</a>
+        </div>
+    </div>
+
+    <div class="page-contain">
+        <table border="1" class="table">
+            <tr>
+                <td class="first-row">
+                    Name
+                </td>
+                <td class="first-row">
+                    Position
+                </td>
+                <td class="first-row">
+                    Type
+                </td>
+                <td class="first-row">
+                    Action
+                </td>
+            </tr>
+            <tr ng-repeat="category in categories">
+                <td>
+                    {{category.name}}
+                </td>
+                <td>
+                    {{category.position}}
+                </td>
+                <td>
+                    {{category.type.name}}
+                </td>
+                <td>
+                    <a href="/admin/#!/categories/{{category._id}}/edit">Edit</a>
+                    <a data-ng-click="delete(category)">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>

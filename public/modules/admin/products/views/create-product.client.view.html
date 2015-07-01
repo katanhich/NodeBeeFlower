@@ -1,0 +1,90 @@
+<div id="new-product" ng-controller="ProductsController" ng-init="findCategories()">
+    <form ng-submit="create()">
+        <div class="clearfix">
+            <div class="left"><h2>Add Product</h2></div>
+            <div class="right">
+                <p class="error">
+                    {{error}}
+                </p>
+                <input type="submit" value="Save">
+            </div>
+        </div>
+
+        <div>
+            <ul>
+                <li ng-class="{active: isSelectTab(1)}">
+                    <a href ng-click="selectTab(1)">General</a>
+                </li>
+                <li ng-class="{active: isSelectTab(2)}">
+                    <a href ng-click="selectTab(2)">Data</a>
+                </li>
+                <li ng-class="{active: isSelectTab(3)}">
+                    <a href ng-click="selectTab(3)">Images</a>
+                </li>
+            </ul>
+
+            <div class="tab" ng-show="isSelectTab(1)">
+                <p>
+                    <label for="name">Name</label>
+                    <input class="input" id="name" ng-model="product.name">
+                </p>
+                <p>
+                    <label for="description">Description</label>
+                    <textarea class="input" id="description" ng-model="product.description"></textarea>
+                </p>
+                <p>
+                    <label for="detail">Detail</label>
+                    <textarea class="input" id="detail" ng-model="product.detail"></textarea>
+                </p>
+            </div>
+            <div class="tab" ng-show="isSelectTab(2)">
+                <p>
+                    <label for="price">Price</label>
+                    <input class="input" id="price" ng-model="product.price">
+                </p>
+                <p>
+                    <label for="deal">Deal</label>
+                    <input class="input" id="deal" ng-model="product.deal_price">
+                </p>
+                <p>
+                    <label for="categories">Categories</label>
+                    <select class="input" id="categories">
+                        <option ng-click="addCategoryToProduct(category)" ng-repeat="category in categories" value="{{category._id}}">
+                            {{category.name}}
+                        </option>
+                    </select>
+                    <blockquote class="categories">
+                        <span ng-repeat="category in product.categories">
+                            <i ng-click="removeCategoryOutProduct(category)" class="fa fa-minus-circle"></i>
+                            {{category.name}}
+                            <br>
+                        </span>
+                    </blockquote>
+                </p>
+                <p>
+                    <label for="show_home">Show home</label>
+                    <input id="show_home" ng-model="product.show_home" type="checkbox">
+                </p>
+                <p>
+                    <label for="ready">Ready</label>
+                    <input id="ready" ng-model="product.ready" type="checkbox">
+                </p>
+                <p>
+                    <label for="hot">Is hot</label>
+                    <input id="hot" ng-model="product.hot" type="checkbox">
+                </p>
+            </div>
+
+            <div ng-show="isSelectTab(3)" class="tab">
+                <p>
+                    <label for="thumbnail">Thumbnail</label>
+                    <input type="file" id="thumbnail" ngf-select ng-model="thumbnail">
+                </p>
+                <p>
+                    <label>Preview</label>
+                    <img class="preview" ngf-src="thumbnail[0]" ngf-default-src="/images/no_image.png">
+                </p>
+            </div>
+        </div>
+    </form>
+</div>

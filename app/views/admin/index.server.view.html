@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link href="/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+<script type="text/javascript">
+    var user = {{ user | json | safe }};
+</script>
+
+<div class="center" id="container">
+    <div class="header">
+        <div class="leftmenu">
+            <ul>
+                <li><a href="/admin/#!/typecategories">Type Categories</a></li>
+                <li><a href="/admin/#!/categories">Categories</a></li>
+                <li><a href="/admin/#!/products">Products</a></li>
+                <li><a href="/admin/#!/advertise">Advertise</a></li>
+                <li><a href="/admin/#!/orders">Carts</a></li>
+                <li><a href="/admin/#!/news">News</a></li>
+                <li><a href="/admin/#!/product">Setting</a></li>
+            </ul>
+        </div>
+
+        <div class="rightmenu">
+            <a href="/#!/changepassword">[Change password]</a><a href="/admin/logout">[Exit]</a>
+        </div>
+    </div>
+
+    <section ng-view></section>
+</div>
+
+<script type="text/javascript" src="/lib/angular/angular.js"></script>
+<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+<script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+
+<script src="/js/ng-file-upload-shim.min.js"></script>
+<script src="/js/ng-file-upload.min.js"></script>
+
+<script type="text/javascript" src="/modules/user/user.client.module.js"></script>
+<script type="text/javascript" src="/modules/user/services/authentication.client.service.js"></script>
+
+<script type="text/javascript" src="/modules/admin/core/core.client.module.js"></script>
+<script type="text/javascript" src="/modules/admin/core/config/core.client.routes.js"></script>
+
+<script type="text/javascript" src="/modules/admin/typecategories/typecategories.client.module.js"></script>
+<script type="text/javascript" src="/modules/admin/typecategories/config/typecategories.client.routes.js"></script>
+<script type="text/javascript" src="/modules/admin/typecategories/services/typecategories.client.service.js"></script>
+<script type="text/javascript" src="/modules/admin/typecategories/controllers/typecategories.client.controller.js"></script>
+
+<script type="text/javascript" src="/modules/admin/categories/category.client.module.js"></script>
+<script type="text/javascript" src="/modules/admin/categories/config/category.client.routes.js"></script>
+<script type="text/javascript" src="/modules/admin/categories/services/categories.client.service.js"></script>
+<script type="text/javascript" src="/modules/admin/categories/controllers/categories.client.controller.js"></script>
+
+<script type="text/javascript" src="/modules/admin/products/products.client.module.js"></script>
+<script type="text/javascript" src="/modules/admin/products/config/products.client.routes.js"></script>
+<script type="text/javascript" src="/modules/admin/products/services/products.client.service.js"></script>
+<script type="text/javascript" src="/modules/admin/products/controllers/products.client.controller.js"></script>
+
+<script type="text/javascript" src="/modules/admin/application.js"></script>
+
+</body>
+</html>

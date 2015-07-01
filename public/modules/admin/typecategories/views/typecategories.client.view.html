@@ -1,0 +1,37 @@
+<div class="center" ng-controller="TypeCategoriesController" ng-init="find()">
+    <div class="page-header">
+        <div class="pull-left">Type Categories</div>
+        <div class="pull-right">
+            <a class="btn-primary" href="/admin/#!/typecategories/create">+</a>
+        </div>
+    </div>
+
+    <div class="page-contain">
+        <table border="1" class="table">
+            <tr>
+                <td class="first-row">
+                    Name
+                </td>
+                <td class="first-row">
+                    Position
+                </td>
+                <td class="first-row">
+                    Action
+                </td>
+            </tr>
+            <tr ng-repeat="typecategory in typecategories">
+                <td>
+                    {{typecategory.name}}
+                </td>
+                <td>
+                    {{typecategory.position}}
+                </td>
+                <td>
+                    <a href="/admin/#!/typecategories/{{typecategory._id}}/edit">Edit</a>
+                    <a data-ng-click="delete(typecategory)">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
