@@ -1,0 +1,133 @@
+<div ng-controller="CartController" class="detail shadow clearfix">
+    <div class="customer-block" ng-show="showTab('customer')">
+    	<h3>Thông tin khách hàng</h3>
+    	<p>
+    		<label for="name">Tên khách hàng (*)</label>
+    		<input class="input" id="name" ng-model="order.sender.name" required>
+    	</p>
+    	<p>
+    		<label for="phone">Điện thoại liên lạc (*)</label>
+    		<input class="input" id="phone" ng-model="order.sender.phone" required>
+    	</p>
+    	<p>
+    		<label for="address">Địa chỉ (*)</label>
+    		<input class="input" id="address" ng-model="order.sender.address" required>
+    	</p>
+    	<p>
+    		<label for="email">Email</label>
+    		<input class="input" id="email" ng-model="order.sender.email">
+    	</p>
+    	<p>
+    		<label for="note">Ghi chú</label>
+    		<textarea class="input" style="vertical-align: middle; height: 100px" id="note" ng-model="order.sender.note">
+    		</textarea> 
+    	</p>
+    	<p>
+    		<input type="button" ng-click="changeTab('product')" value="Next">
+    	</p>
+    </div>
+
+    <div class="order-product" ng-show="showTab('product')" ng-init="getOrderedProducts()">
+    	<h3>Thông tin sản phẩm</h3>
+		<table align="center">
+			<tr style="background-color: #cde0ed;">
+				<td width="5%"></td>
+				<td width="40%">Sản phẩm</td>
+				<td width="14%">Giá gốc</td>
+				<td width="14%">Khuyến mãi</td>
+				<td width="10%">Số lượng</td>
+				<td width="17%">Thành tiền</td>
+			</tr>
+			<tr ordered-product ng-repeat="product in products"></tr>
+		</table>
+        <p><strong>Tổng tiền: {{countTotalMoney()}} VNĐ</strong></p>
+        <br>
+        <p>
+            <input type="button" ng-click="changeTab('customer')" value="Back">
+            <input type="button" ng-click="changeTab('receiver')" value="Next">
+        </p>
+    </div>
+
+    <div class="customer-block" ng-show="showTab('receiver')">
+        <h3>Thông tin người nhận</h3>
+        <p>
+            <label for="name">Họ và tên (*)</label>
+            <input class="input" id="name" ng-model="order.receiver.name" required>
+        </p>
+        <p>
+            <label for="phone">Điện thoại liên lạc (*)</label>
+            <input class="input" id="phone" ng-model="order.receiver.phone" required>
+        </p>
+        <p>
+            <label for="address">Địa chỉ (*)</label>
+            <input class="input" id="address" ng-model="order.receiver.address" required>
+        </p>
+        <p>
+            <label for="message">Lời nhắn</label>
+            <textarea class="input" style="vertical-align: middle; height: 100px" id="note" ng-model="order.receiver.message">
+            </textarea> 
+        </p>
+        <p>
+            <input type="button" ng-click="changeTab('product')" value="Back">
+            <input type="button" ng-click="changeTab('time-receiver')" value="Next">
+        </p>
+    </div>
+
+    <div class="customer-block" ng-show="showTab('time-receiver')">
+        <h3>Thời gian giao hoa</h3>
+        <p>
+            <label>Chọn ngày giao hoa</label>
+            <input value="Chọn ngày" class="input" ng-model="order.receive_date" ui-date required>
+        </p>
+        <p>
+            <label>Thời gian</label>
+            <select class="input" ng-model="order.receive_time" required>
+                <option value="">Chọn thời gian </option>
+                <option value="06:00">06:00</option>
+                <option value="06:30">06:30</option>
+                <option value="07:00">07:00</option>
+                <option value="07:30">07:30</option>
+                <option value="08:00">08:00</option>
+                <option value="08:30">08:30</option>
+                <option value="09:00">09:00</option>
+                <option value="09:30">09:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+                <option value="21:30">21:30</option>
+                <option value="22:00">22:00</option>
+            </select>
+        </p>
+        <p>
+            <label>Hình thức thanh toán</label>
+            <select class="input" ng-model="order.checkout" required>
+                <option value="">Chọn phương thức thanh toán</option>
+                <option selected value="Thanh toán trực tiếp">Thanh toán trực tiếp</option>
+                <option value="Thanh toán qua Paypal">Thanh toán qua Paypal</option>
+            </select>
+        </p>
+        <p>
+            <input type="button" ng-click="changeTab('receiver')" value="Back">
+            <input type="button" ng-click="sendOrder()" value="Gởi đơn hàng">
+        </p>
+    </div>
+</div>

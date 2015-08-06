@@ -8,8 +8,6 @@ angular.module('typecategories').controller('TypeCategoriesController', ['$scope
     function($scope, $routeParams, $location, Authentication, TypeCategories) {
         $scope.authentication = Authentication;
 
-        if (!Authentication.user) $location.path('/admin/login');
-
         $scope.find = function() {
             $scope.typecategories = TypeCategories.query();
         }

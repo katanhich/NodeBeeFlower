@@ -4,7 +4,7 @@ module.exports = function(app) {
 	var users = require('../../app/controllers/users.server.controller');
 	var categories = require('../../app/controllers/categories.server.controller');
 
-	app.all('/admin/categories/*', users.requireAdmin);
+	app.all('/admin/categories*', users.requireAdmin);
 
 	// Categories Routes
 	app.route('/admin/categories')

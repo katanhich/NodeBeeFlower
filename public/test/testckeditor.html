@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="/js/ckeditor.js"></script>
+</head>
+<body>
+<form>
+    <textarea name="editor1" id="editor1" rows="10" cols="80">
+        This is my textarea to be replaced with CKEditor.
+    </textarea>
+    <script>
+        CKEDITOR.replace('editor1', {
+            filebrowserUploadUrl: "upload/upload.php"
+        });
+    </script>
+</form>
+</body>
+</html>

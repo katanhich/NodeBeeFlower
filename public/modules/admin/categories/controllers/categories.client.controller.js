@@ -8,7 +8,7 @@ angular.module('categories').controller('CategoriesController', ['$scope', '$rou
     function($scope, $routeParams, $location, Authentication, Categories, TypeCategories) {
         $scope.authentication = Authentication;
 
-        if (!Authentication.user) $location.path('/admin/login');
+        // if (!Authentication.user) $location.path('/admin/login');
 
         $scope.initEdit = function() {
             this.findType();

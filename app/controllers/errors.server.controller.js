@@ -42,5 +42,5 @@ exports.getErrorMessage = function(err) {
 };
 
 exports.sendError = function(err, res) {
-	return res.status(400).send({message: this.getErrorMessage(err)});
+	return res.status(400).send({error: 'true', message: this.getErrorMessage(err)});
 }

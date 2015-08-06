@@ -3,7 +3,7 @@
         <div class="clearfix">
             <div class="left"><h2>Add Product</h2></div>
             <div class="right">
-                <p class="error">
+                <p ng-show="error" class="error">
                     {{error}}
                 </p>
                 <input type="submit" value="Save">
@@ -30,11 +30,11 @@
                 </p>
                 <p>
                     <label for="description">Description</label>
-                    <textarea class="input" id="description" ng-model="product.description"></textarea>
+                    <textarea style="vertical-align: middle;" class="input" id="description" ng-model="product.description"></textarea>
                 </p>
                 <p>
                     <label for="detail">Detail</label>
-                    <textarea class="input" id="detail" ng-model="product.detail"></textarea>
+                    <textarea style="vertical-align: middle;" class="input" id="detail" ng-model="product.detail"></textarea>
                 </p>
             </div>
             <div class="tab" ng-show="isSelectTab(2)">

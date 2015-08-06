@@ -1,0 +1,10 @@
+<div>
+	<div ng-controller="AdvertisesController" ng-init="findHomeAdver()">
+		<img class="shadow" width="100%" height="300" src="/images/{{mainAdvertise.image}}">
+	</div>
+
+	<div ng-controller="ProductsController" ng-init="initHome()">
+		<product-lazyload></product-lazyload>
+	</div>
+</div>
+

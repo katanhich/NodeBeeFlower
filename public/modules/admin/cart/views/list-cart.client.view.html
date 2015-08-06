@@ -1,0 +1,11 @@
+<div class="center" ng-controller="CartController" ng-init="find()">
+    <div class="boder-bottom page-header clearfix">
+        <div class="pull-left">Carts</div>
+    </div>
+
+    <input ng-model='filterValue'/><button ng-click='filter()'>Filter</button>
+    <div ui-grid="gridOptions" ui-grid-pagination class="cart-grid"></div>
+    <p>Current page: {{ gridApi.pagination.getPage() }} of {{ gridApi.pagination.getTotalPages() }}</p>
+    <button type="button" class="btn btn-success" ng-click="gridApi.pagination.previousPage()">previous page</button>
+    <button type="button" class="btn btn-success" ng-click="gridApi.pagination.nextPage()">next page</button>
+</div>

@@ -5,16 +5,20 @@ module.exports = function(app) {
 	var products = require('../../app/controllers/products.server.controller');
 	var multer  = require('multer');
 
-	app.all('/admin/products/*', users.requireAdmin);
+	app.get('/products/category/:uname', products.findByCategory);
+
+	app.post('/products/find_ordered_products', products.findOrderedProducts);
+
+	app.get('/products/home', products.findForHome);
+	app.get('/products/find_related', products.findRelatedProduct);
+	app.get('/products/:productId', products.read);
+
+	app.all('/admin/products*', users.requireAdmin);
 
 	// Products Routes
 	app.route('/admin/products')
 		.get(products.list)
-		.post(multer({ dest: 'public/images',
-			rename: function (fieldname, filename) {
-				return filename.toLowerCase() + Date.now();
-			}
-		}),products.create);
+		.post(products.create);
 
 	app.route('/admin/products/:productId')
 		.get(products.read)

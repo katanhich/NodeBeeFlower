@@ -1,9 +1,13 @@
 <div class="center" ng-controller="ProductsController" ng-init="find()">
-    <div class="page-header">
+    <div class="boder-bottom page-header clearfix">
         <div class="pull-left">Products</div>
         <div class="pull-right">
             <a class="btn-primary" href="/admin/#!/products/create">+</a>
         </div>
+    </div>
+
+    <div class="form-group">
+        <input type="text" ng-model="search" typeahead="product as product.name for product in products | filter:$viewValue | limitTo:8" class="form-control" typeahead-on-select="searchProduct($item)" placeholder="Search Product...">
     </div>
 
     <div class="page-contain">
@@ -25,7 +29,7 @@
                     Action
                 </td>
             </tr>
-            <tr ng-repeat="product in products">
+            <tr ng-repeat="product in products | limitTo: offset - products.length | limitTo: pageSize">
                 <td>
                     <img style="height: 50px; width: 50px" ng-src="/images/{{product.thumbnail}}">
                 </td>
@@ -33,8 +37,8 @@
                     {{product.name}}
                 </td>
                 <td>
-                    {{product.price}}
-                    {{product.deal_price}}
+                    <p ng-class="{deal: product.deal_price}">{{product.price}}</p>
+                    <p ng-show="product.deal_price" class="deal_price">{{product.deal_price}}</p>
                 </td>
                 <td>
                     {{product.ready}}
@@ -47,4 +51,7 @@
         </table>
     </div>
 
+    <div class="pagination-block">
+        <pagination ng-show="products.length > pageSize" items-per-page="pageSize" total-items="products.length" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+    </div>
 </div>

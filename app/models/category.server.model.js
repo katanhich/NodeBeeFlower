@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;
+	Schema = mongoose.Schema,
+	Common = require('../utils/common.server.util');
 
 /**
  * Category Schema
@@ -15,6 +16,7 @@ var CategorySchema = new Schema({
 		required: 'Please fill Category name',
 		trim: true
 	},
+	uname: String,
 	position: {
 		type: Number,
 		required: 'Please fill position'
@@ -25,5 +27,14 @@ var CategorySchema = new Schema({
 		required: 'Please fill type category'
 	}
 });
+
+CategorySchema.pre('save', function(next) {
+	this.uname = Common.removeVietnamese(this.name);
+	next();
+});
+
+CategorySchema.statics.findByType = function(type, callback) {
+	this.find({type: type}).sort('position').exec(callback);
+}
 
 mongoose.model('Category', CategorySchema);

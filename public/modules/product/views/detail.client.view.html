@@ -1,0 +1,33 @@
+<div ng-controller="ProductsController" ng-init="findOne()" class="detail shadow clearfix">
+    <div class="product-detail clearfix">
+        <div class="product-detail-img">
+            <img width="320px" height="300px" src="/images/{{product.thumbnail}}">
+        </div>
+        <div class="product-detail-text clearfix">
+            <div class="product-title clearfix">
+                <p class="product-name">{{product.name}}</p>
+                <p ng-class="{price_cross: product.deal_price > 0}"><strong>Giá: {{product.price}} VND</strong></p>
+                <p ng-show="product.deal_price"><strong>Khuyến mãi:{{product.price}} VND</strong></p>
+                <section ng-bind-html="product.detail"></section>
+            </div>
+            <div>
+                <img ng-click="addToCart(product._id)" src="/images/body-block-bt-addcart.gif" style="width: 200px;cursor:pointer">
+            </div>
+        </div>
+    </div>
+    <div class="product-related-block clearfix" ng-init="findRelatedProduct(product)">
+        <div>
+            <p class="product-related-title">HOA LIÊN QUAN</p>
+        </div>
+        <div>
+            <div class="product-related" ng-repeat="product in relatedProducts">
+                <div>
+                    <a href="/#!/products/{{product._id}}"><img class="product-img-related" src="/images/{{product.thumbnail}}"></a>
+                </div>
+                <div class="product-price-related">
+                    <p>{{product.price}} VND</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

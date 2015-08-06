@@ -1,0 +1,11 @@
+<div class="shadow product-block">
+	<div class="product-image">
+		<a href="/#!/news/{{news.uname}}"><img width="100%" src="/images/{{news.image}}"></a>
+	</div>
+	<div class="news-description">
+		<p><strong>{{news.name}}</strong></p>
+		<p>
+			{{news.description | limitTo:100}}{{news.description.length > 100 ? '...' : ''}}
+		</p>
+	</div>
+</div>

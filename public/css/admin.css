@@ -30,12 +30,13 @@ ul li {
     list-style: none;
 }
 
-a {
-    text-decoration: none;
-}
-
 li {
     display: inline;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .header {
@@ -62,6 +63,7 @@ li {
 .page-header {
     margin-top: 15px;
     clear: both;
+    padding-bottom: 15px;
 }
 
 .pull-left {
@@ -83,7 +85,7 @@ li {
 }
 
 .page-contain {
-    padding-top: 50px;
+    padding-top: 10px;
 }
 
 .table{
@@ -214,4 +216,93 @@ textarea {
 .preview {
     height: 200px;
     width: 200px;
+}
+
+.deal_price {
+    color: red;
+}
+
+.deal {
+    text-decoration: line-through;
+}
+
+.boder-bottom {
+    border-bottom: 2px solid #efefef;
+}
+
+#new-product .right {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-top: 15px;
+
+}
+
+.form-control {
+    width: 100%;
+    height: 30px;
+    padding-left: 10px;
+}
+
+.dropdown-menu {
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    font-size: 14px;
+    list-style: outside none none;
+    margin: 2px 0 0;
+    min-width: 160px;
+    padding: 5px 0 5px 5px;
+    text-align: left;
+    top: 100%;
+    z-index: 1000;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    background-color: #337ab7;
+    color: #fff;
+    outline: 0 none;
+    text-decoration: none;
+}
+
+.dropdown-menu li {
+    display: block;
+}
+
+.pagination-block {
+    margin-top: 20px;
+    height: 50px;
+}
+
+.pagination > li > a, .pagination > li > span {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #337ab7;
+    float: left;
+    margin-left: -1px;
+    padding: 6px 12px;
+    position: relative;
+    text-decoration: none;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #337ab7;
+    border-color: #337ab7;
+    color: #fff;
+    cursor: default;
+    z-index: 2;
+}
+
+#cke_detail {
+    width: 840px;
+    float: right;
+    vertical-align: middle;
+}
+
+.cart-grid {
+    width: 960px
 }

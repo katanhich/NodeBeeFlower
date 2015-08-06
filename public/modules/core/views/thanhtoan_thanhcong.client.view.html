@@ -1,0 +1,11 @@
+<div ng-controller="CartController" class="detail shadow clearfix" ng-init="getOrderedId()">
+    <div class="customer-block">
+        Chúng tôi đã nhận được đơn đặt hàng của quý khách.
+        <br>
+        Cảm ơn quý khách đã sử dịch vụ.
+        <br>
+        Mã đặt hàng của quý khách là {{orderedId}}.
+        <br>
+        Click vào <a href="/#!/cart/check/{{orderedId}}">đây</a> để xem lại chi tiết đặt hàng
+    </div>
+</div>

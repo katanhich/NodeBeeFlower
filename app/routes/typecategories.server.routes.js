@@ -4,7 +4,9 @@ module.exports = function(app) {
 	var users = require('../../app/controllers/users.server.controller');
 	var typecategories = require('../../app/controllers/typecategories.server.controller');
 
-	app.all('/admin/typecategories/*', users.requireAdmin);
+	app.get('/findTypesAndCategories', typecategories.findAllAndCategories);
+
+	app.all('/admin/typecategories*', users.requireAdmin);
 
 	// Typecategories Routes
 	app.route('/admin/typecategories')

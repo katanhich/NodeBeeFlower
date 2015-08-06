@@ -1,0 +1,11 @@
+<div ng-controller="NewsController" ng-init="findOne()" class="detail shadow clearfix">
+    <div class="clearfix">
+    	<div>
+    		<p class="news-name">{{news.name}}</p>
+    		<span>{{news.created | date}}</span>
+    	</div>
+    	<div class="news-detail">
+    		<section ng-bind-html="news.detail"></section>
+    	</div>
+    </div>
+</div>

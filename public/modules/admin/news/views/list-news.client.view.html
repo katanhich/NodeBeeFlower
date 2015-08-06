@@ -1,0 +1,50 @@
+<div class="center" ng-controller="NewsController" ng-init="find()">
+    <div class="boder-bottom page-header clearfix">
+        <div class="pull-left">News</div>
+        <div class="pull-right">
+            <a class="btn-primary" href="/admin/#!/news/create">+</a>
+        </div>
+    </div>
+
+    <!--<div class="form-group">
+        <input type="text" ng-model="search" typeahead="news as product.name for product in products | filter:$viewValue | limitTo:8" class="form-control" typeahead-on-select="searchProduct($item)" placeholder="Search Product...">
+    </div>-->
+
+    <div class="page-contain">
+        <table border="1" class="table">
+            <tr>
+                <td class="first-row">
+                    Avatar
+                </td>
+                <td class="first-row">
+                    Name
+                </td>
+                <td class="first-row">
+                    Status
+                </td>
+                <td class="first-row">
+                    Action
+                </td>
+            </tr>
+            <tr ng-repeat="news in lnews | limitTo: offset - lnews.length | limitTo: pageSize">
+                <td>
+                    <img style="height: 50px; width: 50px" ng-src="/images/{{news.image}}">
+                </td>
+                <td>
+                    {{news.name}}
+                </td>
+                <td>
+                    {{news.ready}}
+                </td>
+                <td>
+                    <a href="/admin/#!/news/{{news._id}}/edit">Edit</a>
+                    <a data-ng-click="remove(news)">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="pagination-block">
+        <pagination ng-show="lnews.length > pageSize" items-per-page="pageSize" total-items="lnews.length" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+    </div>
+</div>

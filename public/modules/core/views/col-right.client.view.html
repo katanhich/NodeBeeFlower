@@ -1,0 +1,73 @@
+<div>
+    <div class="categories shadow" ng-controller="CatMenuController" ng-init="find()">
+        <div ng-repeat="type in types">
+            <div ng-click="setTab(type.position)" class="block-title-boder">
+                <div class="block-title-type">
+                    {{type.name}}
+                </div>
+            </div>
+            <div ng-show="isSelectedTab(type.position)">
+                <div class="block-categories" ng-repeat="category in type.categories">
+                    <a href="/#!/products/category/{{category.uname}}">
+                        {{category.name}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="price shadow">
+        <p class="block-title">TÌM SẢN PHẨM THEO GIÁ</p>
+        <div>
+            <select>
+                <option selected="" value="">Chọn giá tiền</option>
+                <option value="0-500000">Dưới 500,000 VNĐ</option>
+                <option value="500000-1000000">500,000 - 1,000,000 VNĐ</option>
+                <option value="1000000-2000000">1,000,000 - 2,000,000 VNĐ</option>
+                <option value="2000000-3000000">2,000,000 - 3,000,000 VNĐ</option>
+                <option value="3000000-100000000">Trên 3,000,000</option>
+            </select>
+        </div>
+    </div> -->
+
+    <div class="check-cart shadow">
+        <p class="block-title">THEO DÕI ĐƠN HÀNG</p>
+        <div>
+            <input type="text" id="cartcode">
+            <input type="button" value="Check">
+        </div>
+    </div>
+
+    <div class="check-cart shadow" ng-controller="NewsController" ng-init="findHome()">
+        <div class="news-title">
+            <p class="block-title">TIN TỨC & SỰ KIỆN</p>
+        </div>
+        <div>
+            <div class="latest-news clearfix" ng-repeat="news in latestNews">
+                <div class="F-img">
+                    <a href="/#!/news/{{news.uname}}">
+                        <img width="50" height="50" src="/images/{{news.image}}">
+                    </a>
+                </div>
+                <div class="F-description">
+                    <a href="/#!/news/{{news.uname}}"><p><strong>{{news.name}}</strong></p></a>
+                    <p>{{news.description | limitTo: 100}}{{news.description.length > 100 ? '...' : ''}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-adver" ng-controller="AdvertisesController" ng-init="findRightAdver()">
+        <div ng-repeat="advertise in rightAdvertises">
+            <a href="{{advertise.website}}" target="_blank">
+                <img width="{{advertise.width}}" height="{{advertise.height}}" src="/images/{{advertise.image}}">
+            </a>
+        </div>
+    </div>
+
+    <div ng-controller="ProductsController">
+        <p ng-repeat="product in products">
+            {{product.name}}
+        </p>
+    </div>
+</div>

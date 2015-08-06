@@ -1,0 +1,13 @@
+<div class="shadow product-block">
+	<div class="product-image">
+		<a href="/#!/products/{{product._id}}"><img width="100%" src="/images/{{product.thumbnail}}"></a>
+	</div>
+	<div class="product-title">
+		<p><strong>{{product.name}}</strong></p>
+		<p ng-class="{price_cross: product.deal_price > 0}">Giá: <strong>{{product.price}} VND</strong></p>
+		<p ng-show="product.deal_price">Khuyến mãi: <strong>{{product.price}} VNĐ</strong></p>
+	</div>
+	<div>
+		<img ng-click="addToCart(product._id)" src="/images/body-block-bt-addcart.gif" style="width: 100%;cursor:pointer">
+	</div>
+</div>

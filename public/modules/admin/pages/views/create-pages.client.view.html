@@ -1,0 +1,26 @@
+<div id="new-product" ng-controller="PagesController" ng-init="init()">
+    <form ng-submit="create()">
+        <div class="boder-bottom clearfix">
+            <div class="left"><h2>Add Page</h2></div>
+            <div class="right">
+                <span ng-show="error" class="error">
+                    {{error}}
+                </span>
+                <input type="submit" value="Save">
+            </div>
+        </div>
+
+        <div>
+            <div class="tab">
+                <p>
+                    <label for="link">Link</label>
+                    <input class="input" id="link" ng-model="page.link">
+                </p>
+                <p class="clearfix">
+                    <label style="padding-top: 130px;" for="detail">Detail</label>
+                    <textarea rows="20" style="vertical-align: middle;" class="input" name="detail" id="detail"></textarea>
+                </p>
+            </div>
+        </div>
+    </form>
+</div>

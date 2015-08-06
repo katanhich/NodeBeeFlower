@@ -6,6 +6,8 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Typecategory = mongoose.model('Typecategory'),
+	Category = mongoose.model('Category'),
+	async = require('async'),
 	_ = require('lodash');
 
 /**
@@ -94,3 +96,28 @@ exports.typecategoryByID = function(req, res, next, id) {
 		next();
 	});
 };
+
+exports.findAllAndCategories = function(req, res) {
+	Typecategory.find().sort('position').exec(function(err, types) {
+		var result = convertListToObject(types);
+		async.each(result, function(type, callback) {
+			Category.findByType(type._id, function(err, categories){
+				type.categories = categories;
+				callback();
+			})
+		}, function(err) {
+			if (err) {
+				console.log(err.stack);
+			}
+			res.json(result);
+		})
+	})
+};
+
+function convertListToObject(objects) {
+	var result = [];
+	objects.forEach(function(object) {
+		result.push(object.toObject());
+	});
+	return result;
+}

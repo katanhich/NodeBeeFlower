@@ -1,0 +1,1 @@
+angular.module('cart', ['restangular', 'ui.grid.pagination']);

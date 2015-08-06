@@ -8,7 +8,8 @@ var mongoose = require('mongoose'),
 	Product = mongoose.model('Product'),
 	_ = require('lodash'),
 	fs = require('fs'),
-	async = require('async');
+	async = require('async'),
+	Category = mongoose.model('Category');
 
 /**
  * Create a Product
@@ -40,12 +41,17 @@ exports.read = function(req, res) {
  * Update a Product
  */
 exports.update = function(req, res) {
-	var product = req.product ;
+	req.body.categories = JSON.parse(req.body.categories);
+	if (req.files.file) {
+		req.body.thumbnail = req.files.file.name;
+	}
 
+	var product = req.product ;
 	product = _.extend(product , req.body);
 
 	product.save(function(err) {
 		if (err) {
+			console.log(err.stack)
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
@@ -111,3 +117,58 @@ exports.productByID = function(req, res, next, id) {
 	});
 };
 
+exports.findForHome = function(req, res) {
+	var page = req.query.page - 1;
+	Product.homePagination(page, function(err, products) {
+		if (err) {
+			errorHandler.sendError(err, res);
+		} else {
+			res.json(products);
+		}
+	})
+};
+
+exports.findRelatedProduct = function(req, res) {
+	var productId = req.query.productId;
+	var categoryId = req.query.categoryId;
+
+	Product.findRelatedProduct(productId, categoryId, function(err, products) {
+		if (err) {
+			errorHandler.sendError(err, res);
+		} else {
+			res.json(products);
+		}
+	})
+};
+
+exports.findByCategory = function(req, res) {
+	var categoryUname = req.params.uname;
+	var page = req.query.page - 1;
+
+	Category.findOne({uname: categoryUname}, function(err, category) {
+		if (err) {
+			return errorHandler.sendError(err, res);
+		}
+		if (!category) {
+			return res.json([]);
+		}
+		Product.findByCategory(category._id, page, function(err, products) {
+			if (err) {
+				return errorHandler.sendError(err, res);
+			} else {
+				res.json(products);
+			}
+		});
+	});
+};
+
+exports.findOrderedProducts = function(req, res) {
+	var ids = req.body.ids;
+	Product.findOrderedProducts(ids, function (err, products) {
+		if (err) {
+			return errorHandler.sendError(err, res);
+		} else {
+			res.json(products);
+		}
+	});
+};

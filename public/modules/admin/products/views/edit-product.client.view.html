@@ -1,9 +1,9 @@
 <div id="new-product" ng-controller="ProductsController" ng-init="initEdit()">
-    <form ng-submit="create()">
+    <form ng-submit="update()">
         <div class="clearfix">
             <div class="left"><h2>Add Product</h2></div>
             <div class="right">
-                <p class="error">
+                <p ng-show="error" class="error">
                     {{error}}
                 </p>
                 <input type="submit" value="Save">
@@ -82,7 +82,7 @@
                 </p>
                 <p>
                     <label>Preview</label>
-                    <img class="preview" ngf-src="thumbnail[0]" ngf-default-src="'product.thumbnai'">
+                    <img class="preview" ngf-src="thumbnail[0]" src="/images/{{product.thumbnail}}">
                 </p>
             </div>
         </div>

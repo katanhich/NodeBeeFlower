@@ -21,5 +21,14 @@ module.exports = function(app) {
         res.render('admin/index', {
             user: req.user
         });
+    });
+
+    app.use('/admin/upload', function(req, res) {
+        var funcNum = req.query.CKEditorFuncNum;
+        var url = '/images/' + req.files.upload.name;
+        var message = 'Upload success';
+        var params = funcNum + ',\'' + url + '\',\'' +  message + '\'';
+        // after upload success, CKEDITOR will call this script
+        res.send('<script type=\'text/javascript\'>window.parent.CKEDITOR.tools.callFunction(' + params + ');</script>');
     })
 }

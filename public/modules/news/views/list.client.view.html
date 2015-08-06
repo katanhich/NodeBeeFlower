@@ -1,0 +1,24 @@
+<div>
+	<p class="news-title">TIN TỨC</p>
+</div>
+
+<div data-ng-controller="NewsController" ng-init="loadMoreNews()">
+	<div when-scroll-ends="loadMoreNews()">
+		<div class="col-product">
+			<news-description ng-repeat="news in news1">
+			</news-description>	
+		</div>
+		<div class="col-product">
+			<news-description ng-repeat="news in news2">
+			</news-description>		
+		</div>
+		<div class="col-product">
+			<news-description ng-repeat="news in news3">
+			</news-description>		
+		</div>
+		<div class="col-product">
+			<news-description ng-repeat="news in news4">
+			</news-description>		
+		</div>
+	</div>
+</div>

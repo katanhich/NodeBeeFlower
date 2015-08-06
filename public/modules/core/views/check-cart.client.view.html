@@ -1,0 +1,52 @@
+<div ng-controller="CartController" class="detail shadow clearfix" ng-init="findOne()">
+    <div class="customer-block">
+    	<p>
+    		<label><strong>Mã đơn hàng:</strong></label>
+    		<input class="cart-input" ng-model="order._id">
+    	</p>
+    	<p>
+    		<label>Ngày đặt hàng:</label>
+    		<input class="cart-input" ng-model="order.created">
+    	</p>
+    	<p>
+    		<label>Ngày giao hàng:</label>
+    		<input class="cart-input" ng-model="order.receive_date">
+    	</p>
+    	<p>
+    		<label>Tên khách hàng:</label>
+    		<input class="cart-input" ng-model="order.sender.name">
+    	</p>
+    	<p>
+    		<label>Email:</label>
+    		<input class="cart-input" ng-model="order.sender.email">
+    	</p>
+    	<p>
+    		<label>Phone:</label>
+    		<input class="cart-input" ng-model="order.sender.phone">
+    	</p>
+    	<p>
+    		<label>Địa chỉ:</label>
+    		<input class="cart-input" ng-model="order.sender.address">
+    	</p>
+    	<p>
+    		<label>Note:</label>
+    		<input class="cart-input" ng-model="order.sender.note">
+    	</p>
+    	<p>
+    		<label>Tên:</label>
+    		<input class="cart-input" ng-model="order.receiver.name">
+    	</p>
+    	<p>
+    		<label>Phone:</label>
+    		<input class="cart-input" ng-model="order.receiver.phone">
+    	</p>
+    	<p>
+    		<label>Địa chỉ:</label>
+    		<input class="cart-input" ng-model="order.receiver.address">
+    	</p>
+    	<p>
+    		<label>Lời nhắn:</label>
+    		<input class="cart-input" ng-model="order.cart-input.message">
+    	</p>
+    </div>
+</div>

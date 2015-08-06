@@ -1,0 +1,49 @@
+<div class="center" ng-controller="AdvertisesController" ng-init="find()">
+    <div class="page-header">
+        <div class="pull-left">Advertises</div>
+        <div class="pull-right">
+            <a class="btn-primary" href="/admin/#!/advertises/create">+</a>
+        </div>
+    </div>
+
+    <div class="page-contain">
+        <table border="1" class="table">
+            <tr>
+                <td class="first-row">
+                    Image
+                </td>
+                <td class="first-row">
+                    Name
+                </td>
+                <td class="first-row">
+                    Type
+                </td>
+                <td class="first-row">
+                    Website
+                </td>
+                <td class="first-row">
+                    Action
+                </td>
+            </tr>
+            <tr ng-repeat="advertise in advertises">
+                <td>
+                    <img style="height: 50px; width: 50px" ng-src="/images/{{advertise.image}}">
+                </td>
+                <td>
+                    {{advertise.name}}
+                </td>
+                <td>
+                    {{advertise.type}}
+                </td>
+                <td>
+                    {{advertise.website}}
+                </td>
+                <td>
+                    <a href="/admin/#!/advertises/{{advertise._id}}/edit">Edit</a>
+                    <a data-ng-click="remove(advertise)">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>

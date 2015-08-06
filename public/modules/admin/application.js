@@ -5,7 +5,8 @@
 
 var mainApplicationModuleName = 'beeflower';
 var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngResource', 'ngRoute', 'core',
-    'users', 'typecategories', 'categories', 'products'
+    'users', 'typecategories', 'categories', 'products', 'advertises', 'ui.bootstrap', 
+    'news', 'pages', 'ui.grid', 'cart'
 ]);
 
 mainApplicationModule.config(['$locationProvider',

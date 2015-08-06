@@ -19,7 +19,8 @@ var fs = require('fs'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
 	path = require('path'),
-	multer  = require('multer');
+	multer  = require('multer'),
+	serveIndex = require('serve-index');
 
 module.exports = function() {
 	// Initialize express app
@@ -115,6 +116,13 @@ module.exports = function() {
 
 	// Setting the app router and static folder
 	app.use(express.static(path.resolve('./public')));
+	app.use('/listimages', serveIndex(path.resolve('./public/images'), {'icons': true}));
+
+	app.use(multer({ dest: 'public/images',
+		rename: function (fieldname, filename) {
+			return filename.toLowerCase() + Date.now();
+		}
+	}));
 
 	// Globbing routing files
 	config.getGlobbedFiles('./app/routes/**/*.js').forEach(function(routePath) {
